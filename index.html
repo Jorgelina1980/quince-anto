@@ -2,228 +2,220 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Antonella - Mis 15</title>
 <style>
-* { box-sizing: border-box; }
-body {
-  margin: 0;
-  background: #09070a;
-  color: white;
-  font-family: Georgia, serif;
-  text-align: center;
+*{box-sizing:border-box}
+body{
+ margin:0;background:#080609;color:white;
+ font-family:Georgia,serif;text-align:center;
 }
-main {
-  max-width: 650px;
-  margin: auto;
-  padding: 35px 20px 50px;
-  overflow: hidden;
-  background: radial-gradient(circle at top, #39202d, #100b10 55%, #050505);
-  min-height: 100vh;
+main{
+ max-width:650px;min-height:100vh;margin:auto;
+ padding:35px 20px 55px;overflow:hidden;
+ background:radial-gradient(ellipse at 50% 15%,#593044,#180d19 48%,#050405);
+ position:relative;
 }
-.gold { color: #e9bd63; }
-.pink { color: #ff75a9; }
-.discs {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-  margin: 25px auto 35px;
+main:before{
+ content:"";position:absolute;inset:0;pointer-events:none;
+ background-image:radial-gradient(#f6d38a 1px,transparent 1px);
+ background-size:47px 47px;opacity:.22;
 }
-.disc {
-  width: 105px;
-  height: 105px;
-  border-radius: 50%;
-  background: repeating-radial-gradient(circle, #242126 0 3px, #51434c 4px, #151318 7px);
-  border: 3px solid #d7a94c;
-  box-shadow: 0 0 22px #d7a94c66;
-  position: relative;
+.content{position:relative;z-index:1}
+.topline{
+ color:#e9bd70;letter-spacing:5px;font-size:12px;
 }
-.disc:nth-child(2) {
-  width: 135px;
-  height: 135px;
-  background: repeating-radial-gradient(circle, #31202a 0 3px, #b36a8a 4px, #19131b 7px);
+h1{
+ font-family:Georgia,serif;
+ font-size:clamp(43px,11vw,76px);
+ letter-spacing:3px;margin:12px 0;
+ color:#f4cf83;
+ text-shadow:0 0 10px #d99c4c,0 0 30px #c66a9a;
 }
-.disc::after {
-  content: "";
-  position: absolute;
-  width: 22px;
-  height: 22px;
-  background: #e8b9c9;
-  border: 3px solid #d6a64b;
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
+.subtitle{
+ color:#ff8ab6;letter-spacing:8px;font-size:24px;
 }
-h1 {
-  font-size: clamp(48px, 12vw, 76px);
-  margin: 8px 0;
-  color: #f3c86e;
-  text-shadow: 0 0 18px #d69b46;
-  letter-spacing: 4px;
+.discs{
+ display:flex;justify-content:center;align-items:center;
+ gap:12px;margin:32px auto;
 }
-.subtitle {
-  font-size: 25px;
-  letter-spacing: 7px;
-  color: #ff80ad;
+.disc{
+ width:100px;height:100px;border-radius:50%;
+ position:relative;flex-shrink:0;
+ background:repeating-radial-gradient(circle,#111 0 3px,#55434f 4px,#17131a 7px);
+ border:2px solid #e8bd69;
+ box-shadow:0 0 20px #e5b75c66;
+ animation:spin 12s linear infinite;
 }
-.intro { font-size: 18px; line-height: 1.6; }
-.section {
-  margin: 28px 0;
-  padding: 22px 15px;
-  border: 1px solid #c89b50;
-  border-radius: 18px;
-  background: #ffffff09;
+.disc:nth-child(2){
+ width:135px;height:135px;
+ background:repeating-radial-gradient(circle,#151018 0 3px,#a56c8b 4px,#21131d 7px);
 }
-.section h2 {
-  color: #f1c66c;
-  font-size: 23px;
-  margin-top: 0;
+.disc:before{
+ content:"";position:absolute;inset:12%;
+ border-radius:50%;
+ background:linear-gradient(135deg,transparent 25%,#ffffff66,transparent 60%);
 }
-.countdown {
-  display: flex;
-  justify-content: center;
-  gap: 9px;
-  flex-wrap: wrap;
+.disc:after{
+ content:"";position:absolute;width:23px;height:23px;
+ border-radius:50%;background:#e9bd70;
+ border:4px solid #21131d;
+ top:50%;left:50%;transform:translate(-50%,-50%);
 }
-.time {
-  background: #24151f;
-  border: 1px solid #e2b45c;
-  border-radius: 12px;
-  padding: 12px 8px;
-  min-width: 68px;
+@keyframes spin{to{transform:rotate(360deg)}}
+.cd{
+ width:110px;height:110px;border-radius:50%;
+ margin:20px auto;
+ background:repeating-radial-gradient(circle,#aaa 0 2px,#555 3px,#ddd 4px,#333 6px);
+ border:3px solid #e6c47d;
+ box-shadow:0 0 24px #ff83b066;
+ position:relative;
+ animation:spin 9s linear infinite;
 }
-.time strong {
-  display: block;
-  font-size: 26px;
-  color: #ff83b0;
+.cd:after{
+ content:"";position:absolute;width:24px;height:24px;
+ background:#171019;border:3px solid #e8bd70;
+ border-radius:50%;top:50%;left:50%;
+ transform:translate(-50%,-50%);
 }
-.time span { font-size: 11px; color: #f2d9a8; }
-button, .button {
-  display: inline-block;
-  border: 0;
-  border-radius: 30px;
-  padding: 14px 22px;
-  margin: 8px 4px;
-  background: linear-gradient(110deg, #e5b957, #ff78a8);
-  color: #180d13;
-  font-size: 15px;
-  font-weight: bold;
-  text-decoration: none;
-  cursor: pointer;
+.intro{font-size:18px;line-height:1.8}
+.gold{color:#f2ce82}
+.pink{color:#ff8db7}
+.section{
+ border:1px solid #c99d5b;border-radius:18px;
+ background:linear-gradient(145deg,#ffffff12,#ffffff04);
+ padding:24px 14px;margin:25px 0;
+ box-shadow:0 0 20px #d99c4c16;
 }
-.alias {
-  font-size: 22px;
-  color: #ff8eb8;
-  overflow-wrap: anywhere;
+h2{font-size:21px;color:#eec875;letter-spacing:2px}
+.countdown{
+ display:flex;justify-content:center;gap:8px;flex-wrap:wrap;
 }
-footer { color: #d9bd91; margin-top: 35px; }
+.time{
+ min-width:67px;padding:12px 6px;
+ background:#170e18;border:1px solid #d9ae64;
+ border-radius:12px;
+}
+.time strong{display:block;color:#ff8eb9;font-size:27px}
+.time span{font-size:10px;color:#f4dba8}
+button,.button{
+ display:inline-block;padding:14px 22px;
+ margin:8px 3px;border:0;border-radius:30px;
+ background:linear-gradient(110deg,#e9c16d,#f27eae);
+ color:#160b12;font-weight:bold;text-decoration:none;
+ cursor:pointer;font-size:14px;
+ box-shadow:0 0 17px #ef9bb555;
+}
+.alias{font-size:22px;color:#ff91bb;overflow-wrap:anywhere}
+footer{color:#e9c77e;margin-top:35px}
 </style>
 </head>
 <body>
 <main>
-  <div class="discs">
-    <div class="disc"></div>
-    <div class="disc"></div>
-    <div class="disc"></div>
-  </div>
+<div class="content">
 
-  <p class="subtitle">¡ESTÁS INVITADO!</p>
-  <h1>ANTONELLA</h1>
-  <p class="subtitle">MIS 15</p>
-  <p class="intro">
-    Una noche para brillar, bailar<br>
-    y crear recuerdos inolvidables.<br>
-    ¡Quiero compartirla con vos!
-  </p>
+<p class="topline">✦ UNA NOCHE PARA BRILLAR ✦</p>
 
-  <section class="section">
-    <h2>LA CUENTA REGRESIVA</h2>
-    <div class="countdown">
-      <div class="time"><strong id="days">00</strong><span>DÍAS</span></div>
-      <div class="time"><strong id="hours">00</strong><span>HORAS</span></div>
-      <div class="time"><strong id="minutes">00</strong><span>MINUTOS</span></div>
-      <div class="time"><strong id="seconds">00</strong><span>SEGUNDOS</span></div>
-    </div>
-  </section>
+<div class="discs">
+ <div class="disc"></div>
+ <div class="disc"></div>
+ <div class="disc"></div>
+</div>
 
-  <section class="section">
-    <h2>AGENDÁ LA FECHA</h2>
-    <p class="gold">SÁBADO 6 DE FEBRERO DE 2027</p>
-    <p class="pink">21:00 HS</p>
-  </section>
+<p class="subtitle">THE DISCO PARTY</p>
+<h1>ANTONELLA</h1>
+<p class="subtitle">MIS 15</p>
 
-  <section class="section">
-    <h2>¿DÓNDE?</h2>
-    <p class="gold">LA VIRAL PARTY</p>
-    <p>Los Guaraníes, lote 14<br>
-    Villa Santa Cruz del Lago</p>
-  </section>
+<div class="cd"></div>
 
-  <section class="section">
-    <h2>¡CONFIRMÁ TU ASISTENCIA!</h2>
-    <p>Quiero saber si vas a acompañarme.</p>
-    <a class="button"
-       href="https://wa.me/5493517409255?text=Hola%21%20Quiero%20confirmar%20mi%20asistencia%20a%20los%2015%20de%20Antonella."
-       target="_blank">
-       CONFIRMAR POR WHATSAPP
-    </a>
-  </section>
+<p class="intro">
+Hay noches que se convierten en recuerdos
+para toda la vida.<br>
+Quiero celebrar este momento tan especial
+con vos.<br>
+<strong class="gold">¡Te espero para bailar y disfrutar!</strong>
+</p>
 
-  <section class="section">
-    <h2>MI MEJOR REGALO ES TU PRESENCIA</h2>
-    <p>Si además querés hacerme un regalo:</p>
-    <p class="alias" id="alias">jaz.anto.arce.mp</p>
-    <button onclick="copiarAlias()">COPIAR ALIAS</button>
-    <p id="mensaje"></p>
-  </section>
+<section class="section">
+<h2>✦ FALTAN ✦</h2>
+<div class="countdown">
+ <div class="time"><strong id="days">00</strong><span>DÍAS</span></div>
+ <div class="time"><strong id="hours">00</strong><span>HORAS</span></div>
+ <div class="time"><strong id="minutes">00</strong><span>MINUTOS</span></div>
+ <div class="time"><strong id="seconds">00</strong><span>SEGUNDOS</span></div>
+</div>
+</section>
 
-  <footer>
-    <p class="gold">ANTONELLA · MIS 15</p>
-    <p>¡Nos vemos en la pista!</p>
-    <div class="discs">
-      <div class="disc"></div>
-    </div>
-  </footer>
+<section class="section">
+<h2>GUARDÁ LA FECHA</h2>
+<p class="gold">SÁBADO 6 DE FEBRERO</p>
+<p class="pink">2027 · 21:00 HS</p>
+</section>
+
+<section class="section">
+<h2>LA NOCHE NOS ENCUENTRA EN</h2>
+<p class="gold">LA VIRAL PARTY</p>
+<p>Los Guaraníes, lote 14<br>
+Villa Santa Cruz del Lago</p>
+</section>
+
+<section class="section">
+<h2>¿VENÍS A MI FIESTA?</h2>
+<p>Confirmá tu asistencia por WhatsApp.</p>
+<a class="button"
+href="https://wa.me/5493517409255?text=Hola%21%20Quiero%20confirmar%20mi%20asistencia%20a%20los%2015%20de%20Antonella."
+target="_blank">CONFIRMAR ASISTENCIA</a>
+</section>
+
+<section class="section">
+<h2>UN REGALITO CON CARIÑO</h2>
+<p>Tu presencia es mi mejor regalo.<br>
+Si además querés hacerme un obsequio:</p>
+<p class="alias" id="alias">jaz.anto.arce.mp</p>
+<button onclick="copiarAlias()">COPIAR ALIAS</button>
+<p id="mensaje" class="pink"></p>
+</section>
+
+<div class="discs">
+ <div class="disc"></div>
+ <div class="cd"></div>
+</div>
+
+<footer>
+<p>✦ ANTONELLA · MIS 15 ✦</p>
+<p class="pink">LET'S DANCE!</p>
+</footer>
+</div>
 </main>
 
 <script>
-function actualizarCuenta() {
-  const fecha = new Date("2027-02-06T21:00:00-03:00").getTime();
-  const ahora = Date.now();
-  let diferencia = fecha - ahora;
-
-  if (diferencia <= 0) {
-    document.querySelector(".countdown").innerHTML =
-      "<p class='pink'>¡Llegó el gran día!</p>";
-    return;
-  }
-
-  const dias = Math.floor(diferencia / 86400000);
-  diferencia %= 86400000;
-  const horas = Math.floor(diferencia / 3600000);
-  diferencia %= 3600000;
-  const minutos = Math.floor(diferencia / 60000);
-  const segundos = Math.floor((diferencia % 60000) / 1000);
-
-  document.getElementById("days").textContent = dias;
-  document.getElementById("hours").textContent = horas;
-  document.getElementById("minutes").textContent = minutos;
-  document.getElementById("seconds").textContent = segundos;
+function actualizarCuenta(){
+ const fecha=new Date("2027-02-06T21:00:00-03:00").getTime();
+ let d=fecha-Date.now();
+ if(d<=0){
+  document.querySelector(".countdown").innerHTML=
+  "<p class='pink'>¡Llegó el gran día!</p>";
+  return;
+ }
+ const dias=Math.floor(d/86400000);
+ d%=86400000;
+ const horas=Math.floor(d/3600000);
+ d%=3600000;
+ const minutos=Math.floor(d/60000);
+ const segundos=Math.floor((d%60000)/1000);
+ document.getElementById("days").textContent=dias;
+ document.getElementById("hours").textContent=horas;
+ document.getElementById("minutes").textContent=minutos;
+ document.getElementById("seconds").textContent=segundos;
 }
 actualizarCuenta();
-setInterval(actualizarCuenta, 1000);
+setInterval(actualizarCuenta,1000);
 
-function copiarAlias() {
-  navigator.clipboard.writeText("jaz.anto.arce.mp")
-    .then(() => {
-      document.getElementById("mensaje").textContent = "¡Alias copiado!";
-    })
-    .catch(() => {
-      document.getElementById("mensaje").textContent =
-        "Copiá el alias: jaz.anto.arce.mp";
-    });
+function copiarAlias(){
+ navigator.clipboard.writeText("jaz.anto.arce.mp")
+ .then(()=>document.getElementById("mensaje").textContent="¡Alias copiado!")
+ .catch(()=>document.getElementById("mensaje").textContent=
+ "Copiá este alias: jaz.anto.arce.mp");
 }
 </script>
 </body>
