@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Antonella - Mis 15</title>
+
 <style>
 * { box-sizing: border-box; }
 
@@ -229,6 +230,7 @@ footer {
 
 <main>
   <div class="content">
+
     <p class="subtitle">THE DISCO PARTY</p>
     <h2>ANTONELLA</h2>
 
@@ -272,12 +274,16 @@ footer {
     </a>
 
     <div style="margin-top:30px;">
-      <p style="color:#e9b8d5;">MI REGALO</p>
+      <p style="color:#e9b8d5;">UN REGALITO, SI ASÍ LO DESEÁS</p>
+      <p class="message">
+        Si querés hacerme un regalo, también podés hacerlo a través de este alias.
+      </p>
       <p class="alias" id="alias">jaz.anto.arce.mp</p>
       <button class="button" onclick="copiarAlias()">COPIAR ALIAS</button>
     </div>
 
     <footer>ANTONELLA · MIS 15 · 2027</footer>
+
   </div>
 </main>
 
@@ -298,9 +304,9 @@ function actualizarCuenta() {
     return;
   }
 
-  const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
-  const horas = Math.floor((diferencia / (1000 * 60 * 60)) % 24);
-  const minutos = Math.floor((diferencia / (1000 * 60)) % 60);
+  const dias = Math.floor(diferencia / 86400000);
+  const horas = Math.floor((diferencia / 3600000) % 24);
+  const minutos = Math.floor((diferencia / 60000) % 60);
   const segundos = Math.floor((diferencia / 1000) % 60);
 
   document.getElementById("dias").textContent = dias;
