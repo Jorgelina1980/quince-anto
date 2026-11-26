@@ -209,6 +209,11 @@ h2 {
   overflow-wrap: anywhere;
 }
 
+.music-control {
+  margin-top: 15px;
+  font-size: 13px;
+}
+
 footer {
   margin-top: 30px;
   color: #d9b7d0;
@@ -218,6 +223,10 @@ footer {
 </head>
 
 <body>
+
+<audio id="musica" loop preload="auto">
+  <source src="./cancion%20anto%20MP3.mp3" type="audio/mpeg">
+</audio>
 
 <div id="intro" class="intro-screen">
   <div class="intro-disc"></div>
@@ -282,14 +291,39 @@ footer {
       <button class="button" onclick="copiarAlias()">COPIAR ALIAS</button>
     </div>
 
+    <div class="music-control">
+      <button class="button" id="botonMusica" onclick="alternarMusica()">
+        PAUSAR MÚSICA
+      </button>
+    </div>
+
     <footer>ANTONELLA · MIS 15 · 2027</footer>
 
   </div>
 </main>
 
 <script>
+const musica = document.getElementById("musica");
+
 function entrar() {
-  document.getElementById("intro").classList.add("hide");
+  musica.play().then(() => {
+    document.getElementById("intro").classList.add("hide");
+  }).catch(() => {
+    alert("No se pudo reproducir la canción. Revisá que el archivo MP3 esté subido correctamente.");
+    document.getElementById("intro").classList.add("hide");
+  });
+}
+
+function alternarMusica() {
+  const boton = document.getElementById("botonMusica");
+
+  if (musica.paused) {
+    musica.play();
+    boton.textContent = "PAUSAR MÚSICA";
+  } else {
+    musica.pause();
+    boton.textContent = "REPRODUCIR MÚSICA";
+  }
 }
 
 function actualizarCuenta() {
